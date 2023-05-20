@@ -109,7 +109,7 @@ To deploy this project run
 
 Root endpoint: ```http https://px38wcl3s4.execute-api.us-east-1.amazonaws.com/dev```
 
-#### Get single person
+#### Get Single Person
 
 ```http
   GET {root-endpoint}/getSWPeopleById?person_id={person_id}
