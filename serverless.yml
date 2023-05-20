@@ -1,0 +1,76 @@
+service: aws-lambda-api-service
+
+frameworkVersion: '3.30.1'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  stage: dev
+  profile: deploy-aws
+  region: us-east-1
+  environment:
+    SWAPI_GET_PEOPLE_URL: "https://swapi.py4e.com/api/people/"
+    SWAPI_GET_PEOPLE_BY_ID: "https://swapi.py4e.com/api/people/{person-id}"
+    AWS_ACCESS_KEY_ID: "<access-key-id>"
+    AWS_SECRET_ACCESS_KEY: "<secret-access-key>"
+    MYSQL_DB_USER: "<user>"
+    MYSQL_DB_PASSWORD: "<password>"
+    MYSQL_DB_PORT: <port>
+    MYSQL_DB_SCHEMA: "<schema-name>"
+    MYSQL_DB_HOST: "<db-host>"
+    AWS_S3_BUCKET_NAME: "<bucket-name>"
+    AWS_S3_BUCKET_REGION: "<region>"
+  apiGateway:
+    binaryMediaTypes:
+      - '*/*'
+
+functions:
+  getSWPeopleById:
+    handler: handler.getSWPeopleById
+    timeout: 60
+    events:
+      - http:
+          method: get
+          path: /getSWPeopleById
+  getSWPeople:
+    handler: handler.getSWPeople
+    timeout: 60
+    events:
+      - http:
+          method: get
+          path: /getSWPeople
+  createPublicImageMySQL:
+    handler: handler.createPublicImageMySQL
+    timeout: 60
+    events:
+      - http:
+          method: post
+          path: /mysql/image/public
+  getPublicImagesMySQL:
+    handler: handler.getPublicImagesMySQL
+    timeout: 60
+    events:
+      - http:
+          method: get
+          path: /mysql/image/public
+  deletePublicImagesMySQL:
+    handler: handler.deletePublicImagesMySQL
+    timeout: 60
+    events:
+      - http:
+          method: delete
+          path: /mysql/image/public
+  createPublicImageDynamoDB:
+    handler: handler.createPublicImageDynamoDB
+    timeout: 60
+    events:
+      - http:
+          method: post
+          path: dynamo/image/public
+  getPublicImagesDynamoDB:
+    handler: handler.getPublicImagesDynamoDB
+    timeout: 60
+    events:
+      - http:
+          method: get
+          path: dynamo/image/public

@@ -1,0 +1,39 @@
+{
+  "name": "aws-lambda-api",
+  "version": "1.0.0",
+  "description": "AWS Lambda API with Serverless Framework",
+  "main": "handler.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "invoke-hello": "sls invoke local -f hello",
+    "invoke-bye": "sls invoke local -f bye",
+    "invoke-getSWPeople": "sls invoke local -f getSWPeople",
+    "deploy": "sls deploy --stage dev --verbose",
+    "remove": "sls remove -s dev us-east-1"
+  },
+  "keywords": [
+    "AWS",
+    "Lambda",
+    "Functions",
+    "Serverless",
+    "Nodejs",
+    "S3",
+    "IAM",
+    "Cognito",
+    "Secret",
+    "Manager",
+    "API"
+  ],
+  "author": "Angel Quiroz Soriano",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.1379.0",
+    "axios": "^1.4.0",
+    "busboy": "^1.6.0",
+    "jimp": "^0.22.8",
+    "mysql2": "^3.3.1",
+    "sequelize": "^6.31.1",
+    "uuid": "^9.0.0"
+  }
+}

@@ -1,0 +1,1 @@
+export const AllowedImageMimetypes = ["image/png", "image/jpg", "image/jpeg"]
