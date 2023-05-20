@@ -1,3 +1,4 @@
+
 # AWS Serverless con Node.js
 
 
@@ -102,4 +103,66 @@ To deploy this project run
 
 ```bash
   npm run deploy
+```
+
+## API Reference
+
+Root endpoint: ```http https://px38wcl3s4.execute-api.us-east-1.amazonaws.com/dev```
+
+#### Get single person
+
+```http
+  GET {root-endpoint}/getSWPeopleById?person_id={person_id}
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `person_id` | `string` | **Required**. Person ID |
+
+#### Get People
+
+```http
+  GET {root-endpoint}/getSWPeople
+```
+
+#### Create Public Image (MySQL)
+
+```http
+  POST {root-endpoint}/mysql/image/public
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `file` | `file` | **Required**. Image of any resource for swapi |
+| `resource` | `string` | **Required**. Resource reference |
+| `description` | `string` | **Required**. Image description |
+
+#### Get Public Images (MySQL)
+
+```http
+  GET {root-endpoint}/mysql/image/public
+```
+
+#### Delete Public Images (MySQL)
+
+```http
+  DELETE {root-endpoint}/mysql/image/public
+```
+
+#### Create Public Image (DynamoDB)
+
+```http
+  POST {root-endpoint}/dynamo/image/public
+```
+
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `file` | `file` | **Required**. Image of any resource for swapi |
+| `resource` | `string` | **Required**. Resource reference |
+| `description` | `string` | **Required**. Image description |
+
+#### Get Public Images (DynamoDB)
+
+```http
+  POST {root-endpoint}/dynamo/image/public
 ```
