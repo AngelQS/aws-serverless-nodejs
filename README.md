@@ -1,6 +1,9 @@
 
 # AWS Serverless con Node.js
 
+El proyecto utiliza la API swapi para obtener información sobre los personajes de Star Wars. Además, se está empleando el servicio de almacenamiento en la nube de Amazon AWS (S3) para cargar imágenes relacionadas con dicho universo. Por último, se está utilizando MySQL y DynamoDB como bases de datos para almacenar información relacionada con los personajes, sus detalles biográficos y las películas en las que han aparecido.
+
+## Configuración
 
 A continuación se muestra la configuración de funciones en AWS Serverless con Node.js:
 
